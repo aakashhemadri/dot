@@ -1,0 +1,49 @@
+# Do nothing if not running interactively
+[ -z "$PS1" ] && return
+
+# Bash options
+shopt -s cdspell        # autocorrects cd misspellings
+shopt -s checkwinsize   # update the value of LINES and COLUMNS after each command if altered
+shopt -s cmdhist        # save multi-line commands in history as single line
+shopt -s dotglob        # include dotfiles in pathname expansion
+shopt -s expand_aliases # expand aliases
+shopt -s extglob        # enable extended pattern-matching features
+shopt -s histreedit     # Add failed commands to the bash history
+shopt -s histappend     # Append bash history, don't overwrite
+shopt -s autocd
+
+# Disable flow-control
+# stty stop ''
+# stty start ''
+# stty -ixon
+# stty -ixoff
+
+# Attempt to keep an unlimitedly large history
+export HISTFILE="$XDG_CACHE_HOME/bash_history"
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=
+export HISTFILESIZE=
+
+export PAGER=less
+
+# Use neovim if available
+export EDITOR=$(hash nvim 2>/dev/null && echo 'nvim' || echo 'vim')
+
+# Make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+source "$XDG_CONFIG_HOME/bash/prompt"
+source "$XDG_CONFIG_HOME/bash/aliases"
+source "$XDG_CONFIG_HOME/bash/fzf"
+
+# Source all extra functions
+for f in "$XDG_CONFIG_HOME/bash/functions.d/"*; do source "$f"; done
+
+# Source completions for the dots utility
+source "$HOME/.local/lib/dots/contrib/bash_completion"
+
+# Setup dircolors
+# val "$(dircolors "$XDG_CONFIG_HOME/bash/dircolors/solarized_dark")"
+
+# Setup direnv if available
+# hash direnv 2>/dev/null && eval "$(direnv hook bash)"

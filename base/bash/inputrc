@@ -1,0 +1,27 @@
+set mark-symlinked-directories on
+set completion-ignore-case on
+set expand-tilde on
+set echo-control-characters off
+set colored-stats on
+
+# Use arrow / C-{n,p} keys for history search
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
+# Bash specific macros and bindings
+$if bash
+  # Meta+s: prefix the command with sudo
+  "\es": "\C-asudo \C-e"
+
+  # Meta+l: pipe the command into less
+  "\el": "\C-e| less"
+
+  # Meta+q: quote the current or previous word at the cursor
+  "\eq": "\eb\"\ef\"\C-b"
+
+  # Meta-Up: cd ..
+  "\e\e[A": "\C-a\C-kcd ..\n"
+$endif
