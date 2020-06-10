@@ -1,0 +1,17 @@
+
+Host services.aakashhemadri.com
+  User services
+  Port 22
+  TCPKeepAlive no
+
+Host xps
+  User ymir
+  Port 40000
+
+Host *
+  ServerAliveInterval 60
+  TCPKeepAlive yes
+  ForwardAgent yes  
+  ConnectionAttemps 3
+  Compression yes
+  User ymir
