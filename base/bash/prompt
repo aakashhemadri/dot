@@ -54,7 +54,7 @@ function prompt_command()
 	    fi
     }
 
-    PS1="\[\e[35m\]\w\[\e[m\]\[\e[32m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\] \[\e[m\]\[\e[36;40m\]\u\[\e[m\]\[\e[37m\]@\[\e[m\]\[\e[34;40m\]\h\[\e[m\] \[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[37m\]\\$\[\e[m\] "
+    PS1="\[\e[35m\]\w\[\e[m\]\[\e[32m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\] \[\e[m\]\[\e[36m\]\u\[\e[m\]\[\e[37m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[37m\]\\$\[\e[m\] "
 }
 
 PROMPT_COMMAND=prompt_command
