@@ -5,11 +5,21 @@
 [pretty]
   ls = format:%C(cyan)%h %C(red)%ad %C(blue)[%an]%C(auto)%d %C(normal)%s
 
+[commit]
+  gpgsign = true
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+
 [color]
   ui = true
 
 [apply]
     whitespace = strip
+    
 [url "git@github.com:"]
   insteadOf = gh:
 
