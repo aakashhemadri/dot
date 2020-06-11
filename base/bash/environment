@@ -2,6 +2,8 @@
 
 # Set the systemd-style DBUS address
 export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
+export LANG="en_US.UTF-8"
+export EDITOR="nvim"
 
 # XDG directories
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -9,6 +11,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 export PATH="$HOME/.local/bin:$XDG_CONFIG_HOME/bash/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # Look for terminfo files under data
 [ -d "$XDG_DATA_HOME/terminfo" ] && export TERMINFO="$XDG_DATA_HOME/terminfo"
@@ -21,79 +24,75 @@ export INPUTRC="$XDG_CONFIG_HOME/bash/inputrc"
 export VIMCONFIG="$XDG_CONFIG_HOME/vim"
 export VIMINIT='let $MYVIMRC="$VIMCONFIG/config.vim" | source $MYVIMRC'
 
+# Specify nvm path & initiate nvm
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
 # Ack configuration
-if hash ack 2>/dev/null
-then
-  export ACKRC="$XDG_CONFIG_HOME/ack/ackrc"
-  export ACK_PAGER_COLOR="less -x4SRFX"
+if hash ack 2>/dev/null; then
+    export ACKRC="$XDG_CONFIG_HOME/ack/ackrc"
+    export ACK_PAGER_COLOR="less -x4SRFX"
 fi
 
 # Always install ruby gems local to the user
-if hash gem 2>/dev/null
-then
-  export GEMRC="$XDG_CONFIG_HOME/gemrc/config"
-  export GEM_HOME="$HOME/.local/lib/ruby/gems/$(ruby -e 'puts RbConfig::CONFIG["ruby_version"]')"
-  export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem/specs"
-  export PATH="$PATH:$GEM_HOME/bin"
+if hash gem 2>/dev/null; then
+    export GEMRC="$XDG_CONFIG_HOME/gemrc/config"
+    export GEM_HOME="$HOME/.local/lib/ruby/gems/$(ruby -e 'puts RbConfig::CONFIG["ruby_version"]')"
+    export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem/specs"
+    export PATH="$PATH:$GEM_HOME/bin"
 fi
 
-if hash node 2>/dev/null
-then
-  export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+if hash node 2>/dev/null; then
+    export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 fi
 
 # nodejs's NPM tool configuration
-if hash npm 2>/dev/null
-then
-  export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-  export NPM_CONFIG_DEVDIR="$XDG_CACHE_HOME/node-gyp"
-  export PATH="$PATH:$HOME/.local/lib/nodejs/bin"
+if hash npm 2>/dev/null; then
+    export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+    export NPM_CONFIG_DEVDIR="$XDG_CACHE_HOME/node-gyp"
+    export PATH="$PATH:$HOME/.local/lib/nodejs/bin"
 fi
 
 # Don't overrwrite an already configured GOPATH
-if hash go 2>/dev/null && [ -z "${GOPATH+1}" ]
-then
-  export GOPATH="$HOME/.local/lib/go"
-  export GO111MODULE=on
-  export PATH="$PATH:$GOPATH/bin"
+if hash go 2>/dev/null && [ -z "${GOPATH+1}" ]; then
+    export GOPATH="$HOME/.local/lib/go"
+    export GO111MODULE=on
+    export PATH="$PATH:$GOPATH/bin"
 fi
 
-if hash python 2>/dev/null
-then
-  # Disable python bytecode generation
-  export PYTHONDONTWRITEBYTECODE=1
+if hash python 2>/dev/null; then
+    # Disable python bytecode generation
+    export PYTHONDONTWRITEBYTECODE=1
 
-  # Pyenv should follow XDG
-  export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+    # Pyenv should follow XDG
+    export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 fi
 
-if hash aws 2>/dev/null
-then
-  export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
-  export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
+if hash aws 2>/dev/null; then
+    export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+    export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 fi
 
-if hash redis-cli 2>/dev/null
-then
-  export REDISCLI_HISTFILE="$XDG_DATA_HOME/rediscli_history"
+if hash redis-cli 2>/dev/null; then
+    export REDISCLI_HISTFILE="$XDG_DATA_HOME/rediscli_history"
 fi
 
-if hash "$XDG_DATA_HOME/cargo/bin/rustc" 2>/dev/null
-then
-  export CARGO_HOME="$XDG_DATA_HOME/cargo"
-  export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-  export PATH="$PATH:$CARGO_HOME/bin"
+if hash "$XDG_DATA_HOME/cargo/bin/rustc" 2>/dev/null; then
+    export CARGO_HOME="$XDG_DATA_HOME/cargo"
+    export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+    export PATH="$PATH:$CARGO_HOME/bin"
 fi
 
-hash pass    2>/dev/null && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
-hash vagrant 2>/dev/null && export       VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
+hash pass 2>/dev/null && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+hash vagrant 2>/dev/null && export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 
-hash travis  2>/dev/null && export TRAVIS_CONFIG_PATH="$XDG_CONFIG_HOME/travis"
-hash http    2>/dev/null && export  HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
-hash ansible 2>/dev/null && export     ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/config.ini"
-hash docker  2>/dev/null && export      DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-hash gpg     2>/dev/null && export          GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-hash wget    2>/dev/null && export             WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+hash travis 2>/dev/null && export TRAVIS_CONFIG_PATH="$XDG_CONFIG_HOME/travis"
+hash http 2>/dev/null && export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
+hash ansible 2>/dev/null && export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/config.ini"
+hash docker 2>/dev/null && export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+hash gpg 2>/dev/null && export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+hash wget 2>/dev/null && export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 
 # Source shellcheck configuration
 hash shellcheck 2>/dev/null && source "$XDG_CONFIG_HOME/bash/shellcheck"
@@ -113,7 +112,6 @@ export REACT_EDITOR=true
 export DIRENV_WARN_TIMEOUT=20m
 
 # Include environment configurations from DATA_HOME
-if [ -d "$XDG_DATA_HOME/environment.d" ]
-then
-  for f in "$XDG_DATA_HOME/environment.d/"*; do source "$f"; done
+if [ -d "$XDG_DATA_HOME/environment.d" ]; then
+    for f in "$XDG_DATA_HOME/environment.d/"*; do source "$f"; done
 fi

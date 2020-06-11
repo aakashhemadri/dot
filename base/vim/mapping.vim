@@ -121,6 +121,14 @@ if match(&runtimepath, 'coc.nvim') != -1
   nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
   nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
 
+  " NERDTree
+  map <C-n> :NERDTreeToggle<CR>
+  " Close NERDTree if it is the last window that is open.
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  " NERDTree starts when opening a directory.
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
   " Show signature help when jumping between placeholders
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 endif

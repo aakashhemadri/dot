@@ -1,15 +1,15 @@
 #!/usr/bin/bash
 
-alias sudo="sudo -E"   # carry over environment
-alias cp="cp -i"       # overwrite confirmation
-alias mv="mv -i"       # overwrite confirmation
-alias df="df -h"       # human-readable sizes
-alias du="du -h"       # human-readable sizes
-alias free="free -h"   # human-readable sizes
-alias ll="ls -l"       # detailed file list
-alias la="ls -lA"      # detailed file list with hidden files
-alias wh="which -aS"   # Informative version of which
-alias vim="nvim"       # Force nvim usage
+alias sudo="sudo -E" # carry over environment
+alias cp="cp -i"     # overwrite confirmation
+alias mv="mv -i"     # overwrite confirmation
+alias df="df -h"     # human-readable sizes
+alias du="du -h"     # human-readable sizes
+alias free="free -h" # human-readable sizes
+alias ll="ls -l"     # detailed file list
+alias la="ls -lA"    # detailed file list with hidden files
+alias wh="which -aS" # Informative version of which
+alias vim="nvim"     # Force nvim usage
 
 # Better LS sorting
 #  - Collate listings so dot files are listed first
@@ -22,7 +22,7 @@ alias ls="LC_COLLATE=C ls --group-directories-first --color=auto --classify -h"
 alias serve="python3 -m http.server"
 
 # docker-compose
-# 
+#
 alias dc="docker-compose"
 alias dcup="docker-compose up -d"
 alias dcdown="docker-compose down"
@@ -30,5 +30,4 @@ alias dclog="docker-compose logs -f"
 
 # git
 
-alias gresign="git rebase --exec 'git commit --amend --no-edit -n -S' -i HEAD"   # git resign all commits from history
-
+alias gresign="git rebase --exec 'git commit --amend --no-edit -n -S' -i HEAD" # git resign all commits from history

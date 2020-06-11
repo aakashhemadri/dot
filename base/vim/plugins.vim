@@ -49,6 +49,9 @@ Plug 'svermeulen/vim-subversive'
 " Show vertical lines for tab alignment
 Plug 'Yggdroot/indentLine'
 
+" Directory view
+Plug 'preservim/nerdtree'
+
 " Color schemes
 Plug 'morhetz/gruvbox'
 
