@@ -12,6 +12,6 @@ Host *
   ServerAliveInterval 60
   TCPKeepAlive yes
   ForwardAgent yes  
-  ConnectionAttemps 3
+  ConnectionAttempts 3
   Compression yes
   User ymir
