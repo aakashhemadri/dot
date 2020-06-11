@@ -10,14 +10,14 @@ install_suffix: install
 
 groups:
   - base
-  - machines/xps
-  - machines/remote
-  - machines/server
-  - common/platform-arch
-  - common/platform-debian
-  - common/development
-  - common/i3
-  - common/xfce
+#   - machines/xps
+#   - machines/remote
+#   - machines/server
+#   - common/platform-arch
+#   - common/platform-debian
+#   - common/dev
+#   - common/i3
+#   - common/xfce
 
 # Groups to compile for all profiles
 base_groups: [base]
