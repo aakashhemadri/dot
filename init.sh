@@ -9,7 +9,7 @@
 
 # I am using the latest master builds of dots. See the bootstrap config for
 # details on avaiable version constraints.
-DOTS_RELEASE="master"
+DOTS_RELEASE="latest"
 
 DOTS_CLONE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
