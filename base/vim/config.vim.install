@@ -8,5 +8,5 @@ rm -f "$HOME/.vimrc" \
 
 if [[ ! -e autoload/plug.vim ]]; then
     echo -e "\\033[0;32m==>\\033[0m Installing vim-plug"
-    curl --create-dirs -sSfLo autoload/plug.vim "$PLUG_SOURCE"
+    curl --create-dirs -sSfLo $VIMCONFIG/autoload/plug.vim "$PLUG_SOURCE"
 fi
