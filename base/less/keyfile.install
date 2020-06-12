@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+echo -e "\\033[0;32m***\\033[0m less"
+
 source "$DOTS_SOURCE/base/bash/environment"
 
+echo -e "\\033[0;32m==>\\033[0m Compiling less keyfile"
 # Compile the keyfile
-hash lesskey 2>/dev/null && lesskey -o keyfile.bin keyfile || true
+hash lesskey 2>/dev/null && lesskey -o $XDG_CONFIG_HOME/less/keyfile.bin $XDG_CONFIG_HOME/less/keyfile || true

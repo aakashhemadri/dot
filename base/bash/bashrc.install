@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+echo -e "\\033[0;32m***\\033[0m bash"
+
 source "$DOTS_SOURCE/base/bash/environment"
 
+echo -e "\\033[0;32m==>\\033[0m Cleaning existing bash config"
 # Cleanup home directory
 rm -f "$HOME/.bashrc" \
     "$HOME/.profile" \
@@ -10,6 +13,7 @@ rm -f "$HOME/.bashrc" \
     "$HOME/.bash_logout" \
     "$HOME/.bash_login"
 
+echo -e "\\033[0;32m==>\\033[0m Linking bashrc & profile"
 # Link bashrc / profile
 ln -sf "$XDG_CONFIG_HOME/bash/bashrc" "$HOME/.bashrc"
 ln -sf "$XDG_CONFIG_HOME/bash/profile" "$HOME/.profile"
