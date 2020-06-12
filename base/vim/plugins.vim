@@ -13,9 +13,6 @@ Plug 'tpope/vim-commentary' " Mappings for commenting
 Plug 'tpope/vim-unimpaired' " Generally usefull mappings
 Plug 'tpope/vim-scriptease' " VimL tools
 
-" Directory browsing
-Plug 'justinmk/vim-dirvish'
-
 " Sudo write
 Plug 'lambdalisue/suda.vim'
 
@@ -26,17 +23,6 @@ Plug 'airblade/vim-rooter'
 " http://www.xfree86.org/current/ctlseqs.html#Bracketed Paste Mode
 Plug 'ConradIrwin/vim-bracketed-paste'
 
-" Fuzzy file / buffer / mru finder
-Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
-" Makes alignment a breeze (:Tab)
-Plug 'godlygeek/tabular'
-
-" Prettier status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 " Helper for closing a buffer without closing the split
 Plug 'qpkorr/vim-bufkill'
 
@@ -45,6 +31,17 @@ Plug 'b4winckler/vim-angry'
 
 " Adds a range command for swapping with the yanked text
 Plug 'svermeulen/vim-subversive'
+
+" Prettier status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Fuzzy file / buffer / mru finder
+Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+
+" Makes alignment a breeze (:Tab)
+Plug 'godlygeek/tabular'
 
 " Show vertical lines for tab alignment
 Plug 'Yggdroot/indentLine'

@@ -2,6 +2,7 @@
 "
 " My personal mappings for various commands and key combinations
 
+let mapleader = "'"
 " Smart save: Attempt to use SudoWrite if the file isn't writeable
 nnoremap <expr> <C-s>
   \ expand('%') != '' && getfperm(expand('%')) != '' && !filewritable(expand('%')) ?
@@ -93,42 +94,39 @@ nnoremap <leader>S ^vg_y:execute @@<CR>:echo 'Sourced line'<CR>
 " Repeat the lmast executed macro
 nnoremap , @@
 
-" coc omnicompletions
-if match(&runtimepath, 'coc.nvim') != -1
-  " Use tab like you would expect
-  inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-  inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-
-  " Remap keys for gotos
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gr <Plug>(coc-references)
-
-  " Trigger info window
-  nnoremap <silent> <Space> :call CocActionAsync('doHover')<CR>
-
-  " Diagnostic navigation
-  nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
-  nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
-
+if match(&runtimepath, 'scrooloose/nerdtree') != -1
   " NERDTree
-  map <C-n> :NERDTreeToggle<CR>
+  map <C-N> :NERDTreeToggle<CR>
+
+  " Open NERDTree if no files are specified
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  
   " Close NERDTree if it is the last window that is open.
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
   " NERDTree starts when opening a directory.
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-  " Show signature help when jumping between placeholders
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
 endif
