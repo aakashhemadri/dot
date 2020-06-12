@@ -1,5 +1,5 @@
 " Git support
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 "Code completion
 Plug 'neoclide/coc.nvim'

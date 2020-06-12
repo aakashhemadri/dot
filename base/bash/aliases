@@ -1,15 +1,16 @@
 #!/usr/bin/bash
 
-alias sudo="sudo -E" # carry over environment
-alias cp="cp -i"     # overwrite confirmation
-alias mv="mv -i"     # overwrite confirmation
-alias df="df -h"     # human-readable sizes
-alias du="du -h"     # human-readable sizes
-alias free="free -h" # human-readable sizes
-alias ll="ls -l"     # detailed file list
-alias la="ls -lA"    # detailed file list with hidden files
-alias wh="which -aS" # Informative version of which
-alias vim="nvim"     # Force nvim usage
+alias cp="cp -i"      # overwrite confirmation
+alias mv="mv -i"      # overwrite confirmation
+alias df="df -h"      # human-readable sizes
+alias du="du -h"      # human-readable sizes
+alias free="free -h"  # human-readable sizes
+alias ll="ls -l"      # detailed file list
+alias la="ls -lA"     # detailed file list with hidden files
+alias wh="which -aS"  # Informative version of which
+alias sudo='sudo -E ' # Carry over environment & forces sudo to use aliases
+alias vim="nvim"      # Force nvim usage
+alias oldvim="\vim"   # Use dealiased vim
 
 # Better LS sorting
 #  - Collate listings so dot files are listed first
