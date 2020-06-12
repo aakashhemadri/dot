@@ -18,8 +18,8 @@
   ui = true
 
 [apply]
-    whitespace = strip
-    
+  whitespace = strip
+  
 [url "git@github.com:"]
   insteadOf = gh:
 
