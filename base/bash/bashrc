@@ -41,6 +41,13 @@ source "$XDG_CONFIG_HOME/bash/fzf"
 # Source all extra functions
 for f in "$XDG_CONFIG_HOME/bash/functions.d/"*; do source "$f"; done
 
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
+    ssh-agent >"$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
 # Setup dircolors
 # val "$(dircolors "$XDG_CONFIG_HOME/bash/dircolors/solarized_dark")"
 
