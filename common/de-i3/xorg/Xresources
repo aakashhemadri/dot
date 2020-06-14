@@ -1,0 +1,163 @@
+! URxvt
+
+! General settings
+URxvt.saveLines: 2000
+URxvt.scrollBar: False
+URxvt.scrollstyle: rxvt
+URxvt.termName: xterm-256color
+URxvt.urgentOnBell: False
+URxvt.cursorBlink: True
+
+! Extensions
+URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
+URxvt.urlLauncher: xdg-open
+URxvt.urlButton: 1
+URxvt.underlineURLs: True
+
+URxvt.copyCommand:  xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+
+! Keybindings
+URxvt.keysym.Mod4-c: perl:clipboard:copy
+URxvt.keysym.Mod4-v: perl:clipboard:paste
+URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-u: perl:url-select:select_next
+
+! Fonts
+
+!Hack
+!URxvt.font: fft:Hack-14
+!URxvt.bondFont: fft:Hack-14
+!URxvt.letterSpace: -1
+
+!Courier
+!URxvt.font: xft:Courier-10
+
+!Inconsolata
+URxvt.font: xft:Inconsolata-14
+URxvt.boldFont: xft:Inconsolata-14
+URxvt.letterSpace: -1
+
+!Inconsolata-g
+!URxvt.font: xft:InconsolataG-10
+!URxvt.letterSpace: -1
+
+!Anonymous Pro
+!URxvt.font: xft:Anonymous\ Pro-12
+!URxvt.letterSpace: -1
+
+!Monaco
+!URxvt.font: xft:Monaco-10
+!URxvt.letterSpace: -1
+
+!Droid Sans Mono
+!URxvt.font: xft:Droid Sans Mono-10
+!URxvt.letterSpace: -1
+
+!DejaVu Sans
+!URxvt.font: xft:DejaVu Sans Mono-10
+!URxvt.letterSpace: -1
+
+!Manospace
+!URxvt.font: xft:Monospace-10
+!URxvt.letterSpace: -1
+
+!Terminus
+!URxvt.font: xft:Terminus-10
+
+!Custom Colors
+! special
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #a54242
+*.color9:       #cc6666
+
+! green
+*.color2:       #8c9440
+*.color10:      #b5bd68
+
+! yellow
+*.color3:       #de935f
+*.color11:      #f0c674
+
+! blue
+*.color4:       #5f819d
+*.color12:      #81a2be
+
+! magenta
+*.color5:       #85678f
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #5e8d87
+*.color14:      #8abeb7
+
+! white
+*.color7:       #707880
+*.color15:      #c5c8c6
+!Xterm
+
+! General settings
+XTerm*termName: xterm-256color
+XTerm*geometry: 80x24
+XTerm*saveLines: 1024
+XTerm*scrollBar: False
+XTerm*loginshell: False
+XTerm*cursorBlink: False
+
+! Fonts and Encoding
+XTerm*utf8: True
+XTerm*locale: True
+XTerm*utf8Title: True
+XTerm*renderFont: True
+XTerm*preeditType: Root
+XTerm*xftAntialias: true
+XTerm*faceName: xft:Inconsolata-12
+
+! Trim trailing spaces
+XTerm*trimSelection: true
+
+! Fix alt-key inputting
+XTerm*eightBitInput: false
+XTerm*metaSendsEscape: true
+
+! Copy and paste with clipboard
+XTerm*translations: #override \
+	Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+	Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+
+! Allow selecting email/url by double-click
+XTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
+
+!custom_theme
+color.black: #1d1f21                                                                                       
+color.white: #c5c8c6
+color.dark-grey: #282a2e
+color.grey: #373b41
+color.light-grey: #707880
+color.dark-yellow: #de935f
+color.yellow: #f0c674
+color.dark-red:#a54242
+color.red: #cc6666
+color.dark-green: #8c9440
+color.green: #b5bd68
+color.blue: #81a2be
+color.dark-blue: #54819d
+color.purple:#b294bb
+color.dark-purple: #85678f
+color.teal: #8abeb7
+color.dark-teal: #5e8e87
+ 
+
