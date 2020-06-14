@@ -30,7 +30,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'b4winckler/vim-angry'
 
 " Adds a range command for swapping with the yanked text
-Plug 'svermeulen/vim-subversive'
+" Plug 'svermeulen/vim-subversive'
 
 " Prettier status line
 Plug 'vim-airline/vim-airline'
@@ -47,10 +47,10 @@ Plug 'godlygeek/tabular'
 Plug 'Yggdroot/indentLine'
 
 " Directory view
-" Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 
 " Term
-Plug 'kassio/neoterm'
+" Plug 'kassio/neoterm'
 
 " Color schemes
 Plug 'morhetz/gruvbox'

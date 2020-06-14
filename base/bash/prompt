@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
 function prompt_command() {
-    function nonzero_return() {
-        RETVAL=$?
-        [ $RETVAL -ne 0 ] && echo "$RETVAL"
-    }
+    local EXIT="$?"
+    PS1=""
+
+    local RST='\[\e[m\]'
+    local BLK='\[\e[30m]'
+    local RED='\[\e[31m\]'
+    local GRE='\[\e[32m\]'
+    local YEL='\[\e[33m\]'
+    local BLU='\[\e[34m\]'
+    local PUR='\[\e[35m\]'
+    local TUR='\[\e[36m\]'
+    local WHT='\[\e[37m\]'
+    local NLN='\n'
 
     # get current branch in git repo
     function parse_git_branch() {
@@ -64,13 +73,19 @@ function prompt_command() {
             bits="!${bits}"
         fi
         if [ ! "${bits}" == "" ]; then
-            echo " ${bits}"
+            echo "${bits}"
         else
             echo ""
         fi
     }
 
-    PS1="\[\e[m\]\[\e[36m\]\u\[\e[m\]\[\e[37m\]@\[\e[m\]\[\e[34m\]\H\[\e[m\]:\[\e[35m\]\w\[\e[m\]\[\e[32m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\] \[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[37m\]\\$\[\e[m\] "
+    PS1+="${TUR}\u${RST}${WHT}@${RST}${BLU}\H${RST}:${PUR}\w${RST}${GRE}\`parse_git_branch\`${RST}${NLN}"
+    
+    if [[ $EXIT != 0 ]]; then
+        PS1+="${RED}${EXIT}>>${RST} "
+    else
+        PS1+="${GRE}${EXIT}>>${RST} "
+    fi
 }
 
 PROMPT_COMMAND=prompt_command

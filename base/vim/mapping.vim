@@ -55,11 +55,6 @@ nmap <Leader>y "+y
 nmap <Leader>Y "+Y
 vmap <Leader>y "+y
 
-" s for substitute
-nmap s <plug>(SubversiveSubstitute)
-nmap ss <plug>(SubversiveSubstituteLine)
-nmap S <plug>(SubversiveSubstituteToEndOfLine)
-
 " Yank file path
 nmap <silent><Leader>yp :let @+ = expand('%:p')<CR>:echom "Path copied to system clipboard"<CR>
 
@@ -133,4 +128,7 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 endif
 
-
+" s for substitute
+"nmap s <plug>(SubversiveSubstitute)
+"nmap ss <plug>(SubversiveSubstituteLine)
+"nmap S <plug>(SubversiveSubstituteToEndOfLine)
