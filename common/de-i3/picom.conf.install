@@ -2,7 +2,7 @@
 
 source $DOTS_SOURCE/base/bash/environment
 
-echo -e "$YEL*** de-i3/picom.conf"
+echo -e "$YEL*** common/de-i3/picom.conf"
 
 if !hash picom 2> /dev/null; then
   echo -e "$GRE==>$TUR Installing picom"

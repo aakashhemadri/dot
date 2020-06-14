@@ -2,7 +2,7 @@
 
 source $DOTS_SOURCE/base/bash/environment
 
-echo -e "$YEL*** platform-arch/bash"
+echo -e "$YEL*** common/platform-arch/bash"
 
 if !hash pkgfile 2> /dev/null; then
   echo -e "$GRE==>$TUR Installing pkgfile"

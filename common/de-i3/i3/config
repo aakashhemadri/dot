@@ -11,6 +11,9 @@ set $GIT_CLIENT git
 set $TORRENT qbittorrent
 set $MOD Mod1
 set $SUPER Mod4
+# swap caps lock and escape
+exec --no-startup-id setxkbmap -layout us -option caps:escape
+
 ################################################################
 # variables - global
 ################################################################

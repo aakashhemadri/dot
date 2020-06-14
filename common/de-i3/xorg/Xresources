@@ -39,8 +39,8 @@ URxvt.keysym.M-u: perl:url-select:select_next
 !URxvt.font: xft:Courier-10
 
 !Inconsolata
-URxvt.font: xft:Inconsolata-14
-URxvt.boldFont: xft:Inconsolata-14
+URxvt.font: xft:Inconsolata-11
+URxvt.boldFont: xft:Inconsolata-11
 URxvt.letterSpace: -1
 
 !Inconsolata-g
@@ -64,7 +64,8 @@ URxvt.letterSpace: -1
 !URxvt.letterSpace: -1
 
 !Manospace
-!URxvt.font: xft:Monospace-10
+!URxvt.font: xft:Monospace-11
+!URxvt.font: xft:Monospace-11
 !URxvt.letterSpace: -1
 
 !Terminus
@@ -124,7 +125,7 @@ XTerm*utf8Title: True
 XTerm*renderFont: True
 XTerm*preeditType: Root
 XTerm*xftAntialias: true
-XTerm*faceName: xft:Inconsolata-12
+XTerm*faceName: xft:Inconsolata-11
 
 ! Trim trailing spaces
 XTerm*trimSelection: true
