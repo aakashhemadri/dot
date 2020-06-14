@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+source $DOTS_SOURCE/base/bash/environment
+
+if ! hash libinput-gestures 2> /dev/null; then
+  echo -e "$YEL*** platform-arch/libinput-gestures.conf"
+  echo -e "$GRE==>$TUR Installing dependencies"
+  source $DOTS_SOURCE/scripts/aur.sh
+  echo -e "$GRE==>$TUR Installing libinput-gestures"
+  yay -S libinput-gestures --noconfirm
+fi
+
+
+
