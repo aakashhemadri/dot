@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
-echo -e "\\033[0;32m***\\033[0m vim"
 
 source "$DOTS_SOURCE/base/bash/environment"
 
-echo -e "\\033[0;32m==>\\033[0m Cleaning existing vim configs"
+echo -e "${YEL}*** base/vim"
+echo -e "${GRE}==>${TUR} Cleaning existing vim configs"
 rm -f "$HOME/.vimrc" \
     "$HOME/.viminfo"
 
-echo -e "\\033[0;32m==>\\033[0m Downloading vim-plug from sources"
 PLUG_SOURCE="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
-if [[ ! -e autoload/plug.vim ]]; then
-    echo -e "\\033[0;32m==>\\033[0m Installing vim-plug"
+if [[ ! -e $XDG_CONFIG_HOME/vim/autoload/plug.vim ]]; then
+    echo -e "${GRE}==>${TUR} Installing vim-plug"
     curl --create-dirs -sSfLo $VIMCONFIG/autoload/plug.vim "$PLUG_SOURCE"
 fi
