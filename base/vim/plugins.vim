@@ -47,7 +47,10 @@ Plug 'godlygeek/tabular'
 Plug 'Yggdroot/indentLine'
 
 " Directory view
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
+
+" Term
+Plug 'kassio/neoterm'
 
 " Color schemes
 Plug 'morhetz/gruvbox'

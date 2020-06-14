@@ -1,27 +1,52 @@
+set editing-mode vi
 set mark-symlinked-directories on
 set completion-ignore-case on
 set expand-tilde on
 set echo-control-characters off
 set colored-stats on
+set visible-stats on
+set colored-completion-prefix on
+set menu-complete-display-prefix on
+
+# bash_completion 
+set show-all-if-unmodified on
+#TAB:menu-complete
+
+$if mode=vi
+  set show-mode-in-prompt on
+  $if term=linux
+	  set vi-ins-mode-string \1\e[?0c\2
+	  set vi-cmd-mode-string \1\e[?8c\2
+  $else
+	  set vi-ins-mode-string \1\e[6 q\2
+	  set vi-cmd-mode-string \1\e[2 q\2
+  $endif
+  set keymap vi-command
+  # these are for vi-command mode
+  "\e[A": history-search-backward
+  "\e[B": history-search-forward
+  j: history-search-forward
+  k: history-search-backward
+  set keymap vi-insert
+  "\e[A": history-search-backward
+  "\e[B": history-search-forward
+  $if bash
+    # Ctrl+s: prefix the command with sudo
+    "C-s": "\C-[0sudo \C-e"
+    # Ctrl+l: pipe the command into less
+    "C-l": "\C-e| less "
+    # Meta+q: quote the current or previous word at the cursor
+    # "\eq": "\eb\"\ef\"\C-b"
+    # Send a command in the background with Ctrl+Alt+B, discarding all of its output:
+    # "\e\C-b": "$ > /dev/null 2>&1 &\C-m"
+  $endif
+$endif
 
 # Use arrow / C-{n,p} keys for history search
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+ "\e[A": history-search-backward
+ "\e[B": history-search-forward
 
 "\C-p": history-search-backward
 "\C-n": history-search-forward
 
 # Bash specific macros and bindings
-$if bash
-  # Meta+s: prefix the command with sudo
-  "\es": "\C-asudo \C-e"
-
-  # Meta+l: pipe the command into less
-  "\el": "\C-e| less"
-
-  # Meta+q: quote the current or previous word at the cursor
-  "\eq": "\eb\"\ef\"\C-b"
-
-  # Meta-Up: cd ..
-  "\e\e[A": "\C-a\C-kcd ..\n"
-$endif

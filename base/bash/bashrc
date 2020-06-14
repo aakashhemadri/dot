@@ -4,15 +4,20 @@
 [ -z "$PS1" ] && return
 
 # Bash options
+shopt -s autocd
 shopt -s cdspell        # autocorrects cd misspellings
+shopt -s checkhash
+shopt -s checkjobs
 shopt -s checkwinsize   # update the value of LINES and COLUMNS after each command if altered
 shopt -s cmdhist        # save multi-line commands in history as single line
+shopt -s complete_fullquote
+shopt -s direxpand
+shopt -s dirspell
 shopt -s dotglob        # include dotfiles in pathname expansion
 shopt -s expand_aliases # expand aliases
 shopt -s extglob        # enable extended pattern-matching features
 shopt -s histreedit     # Add failed commands to the bash history
 shopt -s histappend     # Append bash history, don't overwrite
-shopt -s autocd
 
 # Disable flow-control
 # stty stop ''
@@ -26,7 +31,7 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=
 export HISTFILESIZE=
 
-export PAGER=less
+export PAGER=more
 
 # Use neovim if available
 export EDITOR=$(hash nvim 2>/dev/null && echo 'nvim' || echo 'vim')
@@ -40,13 +45,6 @@ source "$XDG_CONFIG_HOME/bash/fzf"
 
 # Source all extra functions
 for f in "$XDG_CONFIG_HOME/bash/functions.d/"*; do source "$f"; done
-
-if ! pgrep -u "$USER" ssh-agent >/dev/null; then
-    ssh-agent >"$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
 
 # Setup dircolors
 # val "$(dircolors "$XDG_CONFIG_HOME/bash/dircolors/solarized_dark")"
