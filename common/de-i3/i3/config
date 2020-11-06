@@ -4,7 +4,7 @@
 set $TERMINAL alacritty
 set $BROWSER firefox-developer-edition
 set $CHROME chromium
-set $EDITOR vim
+set $EDITOR code
 set $FILE_MANAGER nemo
 set $QEDITOR gedit
 set $GIT_CLIENT git
@@ -12,6 +12,7 @@ set $TORRENT qbittorrent
 set $MOD Mod1
 set $SUPER Mod4
 # swap caps lock and escape
+exec --no-startup-id autorandr -c && $HOME/.config/polybar/polybar-launch.sh && nitrogen --restore
 exec --no-startup-id setxkbmap -layout us -option caps:escape
 
 ################################################################
@@ -53,10 +54,11 @@ for_window [class = "aft-linux-qt"] floating enable
 for_window [class = "Nemo"] floating enable
 for_window [class = "KeePassXC"] floating enable
 for_window [class = "Solaar"] floating enable
-# for_window [class = ""] floating enable
-# for_window [class = ""] floating enable
+for_window [class = "Stoken-gui"] floating enable
+for_window [class = "zoom"] floating enable
+for_window [class = "Blueman-manager"] floating enable
 # for_window [name = "Remmina Remote Desktop Client"] floating enable
-# for_window [class = "dota2"] floating disable
+for_window [class = "dota2"] floating disable
 ######
 # Floating windows
 ######
@@ -332,6 +334,7 @@ exec --no-startup-id solaar -w hide
 exec --no-startup-id keepassxc
 exec --no-startup-id pasystray
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id blueman-manager
 #exec --no-startup-id $CHROME
 #exec --no-startup-id $GIT_CLIENT
 #exec --no-startup-id $EDITOR

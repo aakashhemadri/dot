@@ -51,3 +51,23 @@ for f in "$XDG_CONFIG_HOME/bash/functions.d/"*; do source "$f"; done
 
 # Setup direnv if available
 # hash direnv 2>/dev/null && eval "$(direnv hook bash)"
+
+if [ "$TERM" = "linux" ]; then
+    echo -en "\e]P01d1f21" #black
+    echo -en "\e]P8282a2e" #dark-grey
+    echo -en "\e]P1a54242" #dark-red
+    echo -en "\e]P9cc6666" #red
+    echo -en "\e]P28c9440" #dark-green
+    echo -en "\e]PAb5bd68" #green
+    echo -en "\e]P3de935f" #dark-yellow/orange/brown
+    echo -en "\e]PBf0c674" #yellow
+    echo -en "\e]P454819d" #darkblue
+    echo -en "\e]PC81a2be" #blue
+    echo -en "\e]P585678f" #dark-purple
+    echo -en "\e]PDb294bb" #purple
+    echo -en "\e]P65e8e87" #darkteal
+    echo -en "\e]PE8abeb7" #teal
+    echo -en "\e]P7707880" #light-grey
+    echo -en "\e]PFc5c8c6" #white
+    clear #for background artifacting
+fi

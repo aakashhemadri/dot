@@ -6,7 +6,13 @@ Host services.aakashhemadri.com
 
 Host xps
   User ymir
-  Port 40000
+  Port 22
+
+Host kla
+  HostName ssh.dev.azure.com
+  User git
+  IdentityFile /home/ymir/.ssh/kla_rsa
+  IdentitiesOnly yes
 
 Host *
   ServerAliveInterval 60

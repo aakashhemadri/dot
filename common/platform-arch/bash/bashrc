@@ -1,2 +1,4 @@
 source /usr/share/doc/pkgfile/command-not-found.bash
 
+source <(cod init $$ bash)
+
