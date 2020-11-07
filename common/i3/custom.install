@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+source $DOTS_SOURCE/base/bash/environment
+
+echo -e "$YEL*** common/i3wm/gtk+"
+
+if !hash gtk3 2> /dev/null; then
+  echo -e "$GRE==>$TUR Installing gtk"
+  sudo -E pacman -Syu gtk3 gtk2 --noconfirm
+else
+  echo -e "$GRE==>$TUR gtk pre-installed!"
+fi
+
+echo -e "$GRE==>$TUR Linking all gtk confs"
+ln -sf "$XDG_CONFIG_HOME/custom/icons" "$HOME/.icons/"
+ln -sf "$XDG_CONFIG_HOME/custom/themes" "$HOME/.themes/"
+ln -sf "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0" "$HOME/.gtkrc-2.0"

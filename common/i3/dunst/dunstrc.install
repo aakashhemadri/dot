@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+source $DOTS_SOURCE/base/bash/environment
+
+echo -e "$YEL*** common/i3wm/dunst"
+
+if !hash dunst 2> /dev/null; then
+  echo -e "$GRE==>$TUR Installing dunst"
+  sudo -E pacman -Syu dunst --noconfirm
+else
+  echo -e "$GRE==>$TUR dunst pre-installed!"
+fi

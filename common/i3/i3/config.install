@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+source $DOTS_SOURCE/base/bash/environment
+
+echo -e "$YEL*** common/i3wm/i3-gaps"
+
+if !hash i3-gaps 2> /dev/null; then
+  echo -e "$GRE==>$TUR Installing i3-gaps"
+  sudo -E pacman -Syu i3-gaps --noconfirm
+else
+  echo -e "$GRE==>$TUR i3-gaps/i3wm pre-installed!"
+fi

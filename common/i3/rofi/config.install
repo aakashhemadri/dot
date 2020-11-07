@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+source $DOTS_SOURCE/base/bash/environment
+
+echo -e "$YEL*** common/i3wm/rofi"
+
+if !hash rofi 2> /dev/null; then
+  echo -e "$GRE==>$TUR Installing rofi"
+  sudo -E pacman -Syu rofi --noconfirm
+else
+  echo -e "$GRE==>$TUR rofi pre-installed!"
+fi

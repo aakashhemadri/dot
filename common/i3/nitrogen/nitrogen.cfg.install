@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+source $DOTS_SOURCE/base/bash/environment
+
+echo -e "$YEL*** common/i3wm/nitrogen"
+
+if !hash nitrogen 2> /dev/null; then
+  echo -e "$GRE==>$TUR Installing nitrogen"
+  sudo -E pacman -Syu nitrogen --noconfirm
+else
+  echo -e "$GRE==>$TUR nitrogen pre-installed!"
+fi
