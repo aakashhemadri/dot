@@ -10,5 +10,9 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 group=${DIR#$DOTS_SOURCE/}
 echo -e "$YEL*** Installing group $PUR$group/$(basename $0 .install)$RST"
 
-# Compile the keyfile
-hash lesskey 2>/dev/null && lesskey -o $XDG_CONFIG_HOME/less/keyfile.bin $XDG_CONFIG_HOME/less/keyfile || true
+# Both source and target files should be set to 600 permissions. Git does not
+# track permissiosn otherwise so this is a requirement.
+chmod 600 "$DOTS_SOURCE/base/gnupg/gpg-agent.conf" "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf"
+
+mkdir -p "$HOME/.gnupg"
+ln -sf "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf" "$HOME/.gnupg/"

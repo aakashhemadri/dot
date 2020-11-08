@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 source "$DOTS_SOURCE/base/bash/environment"
-echo -e "$YEL*** base/ssh"
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+group=${DIR#$DOTS_SOURCE/}
+echo -e "$YEL*** Installing group $PUR$group/$(basename $0 .install)$RST"
+
 # Both source and target files should be set to 600 permissions. Git does not
 # track permissiosn otherwise so this is a requirement.
-echo -e "$GRE==>$TUR Setting ssh/config permission to 600"
 chmod 600 "$DOTS_SOURCE/base/ssh/config" "$XDG_CONFIG_HOME/ssh/config"
 
-echo -e "$GRE==>$TUR Linking ssh/config"
 mkdir -p "$HOME/.ssh"
 ln -sf "$XDG_CONFIG_HOME/ssh/config" "$HOME/.ssh/"

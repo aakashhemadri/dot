@@ -8,6 +8,7 @@ alias free="free -h" # human-readable sizes
 alias ll="ls -l"     # detailed file list
 alias la="ls -lA"    # detailed file list with hidden files
 alias wh="which -aS" # Informative version of which
+alias less='less --RAW-CONTROL-CHARS'
 alias sudo='sudo '   # Carry over environment & forces sudo to use aliases
 alias vim="nvim"     # Force nvim usage
 alias oldvim="\vim"  # Use dealiased vim
@@ -17,7 +18,7 @@ alias oldvim="\vim"  # Use dealiased vim
 #  - Colorize the list
 #  - Classify files (such as executables with a *)
 #  - always show sizes in human readable formats
-alias ls="LC_COLLATE=C ls --group-directories-first --color=auto --classify -h"
+alias ls="LC_COLLATE=C ls --group-directories-first --color=always --classify -h"
 
 # Server the current directory over port 8000 using python
 alias serve="python3 -m http.server"

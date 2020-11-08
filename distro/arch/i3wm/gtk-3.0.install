@@ -10,5 +10,10 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 group=${DIR#$DOTS_SOURCE/}
 echo -e "$YEL*** Installing group $PUR$group/$(basename $0 .install)$RST"
 
-# Compile the keyfile
-hash lesskey 2>/dev/null && lesskey -o $XDG_CONFIG_HOME/less/keyfile.bin $XDG_CONFIG_HOME/less/keyfile || true
+if !hash gtk3 2> /dev/null; then
+  sudo -E pacman -Syu gtk3 gtk2 --noconfirm
+fi
+
+tar -xvf "$DOTS_SOURCE/packages/gtk_themes/themes.tar.gz" -C $HOME 1> /dev/null
+tar -xvf "$DOTS_SOURCE/packages/gtk_themes/icons.tar.gz" -C $HOME 1> /dev/null
+

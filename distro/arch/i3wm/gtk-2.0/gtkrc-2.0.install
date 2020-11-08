@@ -10,5 +10,8 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 group=${DIR#$DOTS_SOURCE/}
 echo -e "$YEL*** Installing group $PUR$group/$(basename $0 .install)$RST"
 
-# Compile the keyfile
-hash lesskey 2>/dev/null && lesskey -o $XDG_CONFIG_HOME/less/keyfile.bin $XDG_CONFIG_HOME/less/keyfile || true
+if !hash gtk2 2> /dev/null; then
+  sudo -E pacman -Syu gtk2 --noconfirm
+fi
+
+ln -sf "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0" "$HOME/.gtkrc-2.0"
