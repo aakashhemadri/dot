@@ -11,4 +11,4 @@ group=${DIR#$DOTS_SOURCE/}
 echo -e "$YEL*** Installing group $PUR$group/$(basename $0 .install)$RST"
 
 source $DOTS_SOURCE/scripts/aur.sh
-yay -Syu --needed --noconfirm - < $DIR/cli
+yay -Syu --needed --noconfirm --norebuild --noredownload - < $DIR/cli

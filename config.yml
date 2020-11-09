@@ -18,10 +18,7 @@ groups:
 #  - machines/remote
 #  - machines/server
 
-# Groups to compile for all profiles
 base_groups: [base]
-# Configuration profiles. Each configuration profile should map to a list of
-# source paths to compile. Order defines the cascade order.
 profiles:
   arch:
     - distro/arch/cli
@@ -30,10 +27,10 @@ profiles:
     - distro/arch/gui
     - distro/arch/i3wm
   xps:
+    - machines/xps
     - distro/arch/cli
     - distro/arch/gui
     - distro/arch/i3wm
-    - machines/xps
 #   remote:
 #    - common/platform-debian
 #    - common/development

@@ -10,19 +10,8 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 group=${DIR#$DOTS_SOURCE/}
 echo -e "$YEL*** Installing group $PUR$group/$(basename $0 .install)$RST"
 
-# Cleanup home directory
-rm -f "$HOME/.bashrc" \
-    "$HOME/.profile" \
-    "$HOME/.bash_profile" \
-    "$HOME/.bash_history" \
-    "$HOME/.bash_logout" \
-    "$HOME/.bash_login"
+sudo -E ln -sf "$XDG_CONFIG_HOME/grub/grub" "/etc/default/grub"
 
-# Link bashrc / profile
-ln -sf "$XDG_CONFIG_HOME/bash/bashrc" "$HOME/.bashrc"
-ln -sf "$XDG_CONFIG_HOME/bash/profile" "$HOME/.profile"
-ln -sf "$XDG_CONFIG_HOME/bash/pam_environment" "$HOME/.pam_environment"
+echo -e "$GRE\tPlease run: \"systemctl enable --now bluetooth\" to enable bluetooth"
 
-# Ensure cache and data directory is setup
-mkdir -p "$XDG_CACHE_HOME"
-mkdir -p "$XDG_DATA_HOME"
+
