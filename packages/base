@@ -1,5 +1,8 @@
 bash
 git
+git-lfs
+vim
 neovim
 wget
+curl
 tmux

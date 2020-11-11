@@ -10,9 +10,11 @@ install_suffix: install
 
 groups:
   - base
+  - packages
   - distro/arch/cli
   - distro/arch/gui
   - distro/arch/i3wm
+  - distro/arch/kde
   - distro/debian
   - machines/xps
 #  - machines/remote
@@ -26,6 +28,10 @@ profiles:
     - distro/arch/cli
     - distro/arch/gui
     - distro/arch/i3wm
+  arch-kde:
+    - distro/arch/cli
+    - distro/arch/gui
+    - distro/arch/kde
   xps:
     - machines/xps
     - distro/arch/cli

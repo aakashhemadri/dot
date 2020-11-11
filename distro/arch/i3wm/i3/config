@@ -11,6 +11,7 @@ set $GIT_CLIENT git
 set $TORRENT qbittorrent
 set $MOD Mod1
 set $SUPER Mod4
+set $WIFI_DEV wlan0
 # swap caps lock and escape
 exec --no-startup-id autorandr -c && $HOME/.config/polybar/polybar-launch.sh && nitrogen --restore
 exec --no-startup-id setxkbmap -layout us -option caps:escape

@@ -12,6 +12,3 @@ echo -e "$YEL*** Installing group $PUR$group/$(basename $0 .install)$RST"
 
 sudo -E ln -sf "$XDG_CONFIG_HOME/grub/grub" "/etc/default/grub"
 
-echo -e "$GRE\tPlease run: \"systemctl enable --now bluetooth\" to enable bluetooth"
-
-
