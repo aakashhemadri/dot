@@ -1,14 +1,7 @@
-#!/usr/bin/env bash
-source "$DOTS_SOURCE/base/bash/environment"
-SOURCE="${BASH_SOURCE[0]}"
-while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
-  SOURCE="$(readlink "$SOURCE")"
-  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-done
-DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
-group=${DIR#$DOTS_SOURCE/}
-echo -e "$YEL*** Installing group $PUR$group/$(basename $0 .install)$RST"
+#!/usr/bin/bash
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
 
 # Cleanup home directory
 rm -f "$HOME/.bashrc" \

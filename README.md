@@ -25,7 +25,8 @@ vim config.yml
 
 - **Fix polybar
 - **Fix touchpad settings
-- **Fix autorandr/display configs
+- Add utilities: evince, libre* ...
+- Add powerpill
 - Add ly display manager
 - Add debian/* groups
 - Add arch/kde & arch/xfce groups

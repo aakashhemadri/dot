@@ -3,5 +3,6 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
 
-# Compile the keyfile
-hash lesskey 2>/dev/null && lesskey -o $XDG_CONFIG_HOME/less/keyfile.bin $XDG_CONFIG_HOME/less/keyfile || true
+tar -xvf "$DOTS_SOURCE/packages/gtk_themes/themes.tar.gz" -C $HOME 1> /dev/null
+tar -xvf "$DOTS_SOURCE/packages/gtk_themes/icons.tar.gz" -C $HOME 1> /dev/null
+

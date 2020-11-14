@@ -11,33 +11,32 @@ install_suffix: install
 groups:
   - base
   - packages
-  - distro/arch/cli
-  - distro/arch/gui
-  - distro/arch/i3wm
-  - distro/arch/kde
-  - distro/debian
-  - machines/xps
-#  - machines/remote
-#  - machines/server
+  - arch/cli
+  - arch/gui
+  - arch/i3wm
+  - arch/kde
+  - arch/targets/xps
+  - debian/cli
+  - debian/targets/remote
+  - debian/targets/xps
 
 base_groups: [base]
 profiles:
   arch:
-    - distro/arch/cli
-  arch-i3:
-    - distro/arch/cli
-    - distro/arch/gui
-    - distro/arch/i3wm
+    - arch/cli
+  arch-i3wm:
+    - arch/cli
+    - arch/gui
+    - arch/i3wm
   arch-kde:
-    - distro/arch/cli
-    - distro/arch/gui
-    - distro/arch/kde
+    - arch/cli
+    - arch/gui
+    - arch/kde
   xps:
-    - machines/xps
-    - distro/arch/cli
-    - distro/arch/gui
-    - distro/arch/i3wm
-#   remote:
-#    - common/platform-debian
-#    - common/development
-#    - machines/remote
+    - arch/cli
+    - arch/gui
+    - arch/i3wm
+    - arch/targets/xps
+  remote:
+    - debian/cli
+    - debian/targets/remote

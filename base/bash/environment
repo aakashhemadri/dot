@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+export DOTS_SOURCE=$HOME/.local/etc
 # Set the systemd-style DBUS address
 export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
 export LANG="en_US.UTF-8"

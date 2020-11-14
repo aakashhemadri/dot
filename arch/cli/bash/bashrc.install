@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
+
+if !hash pkgfile 2> /dev/null; then
+  sudo -E pacman -Syu pkgfile --noconfirm
+  sudo -E pkgfile -u
+  sudo systemctl enable pkgfile-update.timer
+else
+  sudo systemctl enable pkgfile-update.timer
+fi

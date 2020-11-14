@@ -8,4 +8,4 @@ echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST
 chmod 600 "$DOTS_SOURCE/base/gnupg/gpg-agent.conf" "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf"
 
 mkdir -p "$HOME/.gnupg"
-ln -sf "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf" "$HOME/.gnupg/"
+ln -sf "$XDG_CONFIG_HOME/gnupg/gpg.conf" "$HOME/.gnupg/"
