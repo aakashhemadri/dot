@@ -13,3 +13,4 @@ gtk2
 gtk3
 qt5-styleplugins
 kdeconnect
+polkit-gnome

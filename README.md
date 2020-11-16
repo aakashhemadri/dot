@@ -21,15 +21,16 @@ dots install
 vim config.yml
 ```
 
+## List of required manual entries
+- /etc/polkit-1/rules.d/*
+
 ## TODO
 
 - **Fix polybar
 - **Fix touchpad settings
 - Add utilities: evince, libre* ...
-- Add powerpill
 - Add ly display manager
 - Add debian/* groups
 - Add arch/kde & arch/xfce groups
 - Add darwin/* groups
-- Clean all package lists
 - Add hooks to private etckeeper

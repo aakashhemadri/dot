@@ -1,8 +1,11 @@
-powerpill
-ntfs-3g
+iwd
 bluez
 bluez-utils
+powerpill
+ntfs-3g
 pulseaudio
 pulseaudio-alsa
 pulseaudio-modules-bt
 libldac
+ttf-hack
+rsync

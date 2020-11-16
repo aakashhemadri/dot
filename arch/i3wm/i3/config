@@ -336,6 +336,9 @@ exec --no-startup-id keepassxc
 exec --no-startup-id pasystray
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-manager
+# Startup desktop apps
+exec --no-startup-id discord --start-minimized
+exec --no-startup-id steam -silent
 #exec --no-startup-id $CHROME
 #exec --no-startup-id $GIT_CLIENT
 #exec --no-startup-id $EDITOR

@@ -1,9 +1,4 @@
-chromium
-firefox-developer-edition
-qbittorrent
-solaar
-gparted
-keepassxc
+# Filesystem
 nemo
 nemo-media-columns
 nemo-preview
@@ -14,3 +9,17 @@ gvfs
 gvfs-mtp
 gvfs-gphoto2
 gvfs-afc
+# Networking
+networkmanager-iwd
+network-manager-applet
+# Desktop
+chromium
+firefox-developer-edition
+qbittorrent
+solaar
+gparted
+discord
+steam
+keepassxc
+# Fonts
+ttf-liberation
