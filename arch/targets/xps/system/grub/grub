@@ -2,8 +2,8 @@
 
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
-GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet resume=/dev/nvme0n1p2"
+GRUB_DISTRIBUTOR="Arch Linux"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet resume=/dev/nvme0n1p2"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed

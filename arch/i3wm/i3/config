@@ -192,6 +192,7 @@ bindsym $MOD+Shift+q kill
 bindsym $MOD+Shift+e exec i3lock-fancy-rapid 5 pixel 
 #bindsym $MOD+Shift+x exit
 bindsym $MOD+Shift+a exec --no-startup-id autorandr -c && $HOME/.config/polybar/polybar-launch.sh && nitrogen --restore
+bindsym $MOD+Shift+z exec --no-startup-id $HOME/.config/polybar/polybar-launch.sh && nitrogen --restore
 #
 ################################################################
 # colors
