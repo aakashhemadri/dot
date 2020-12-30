@@ -18,8 +18,8 @@ groups:
   - arch/kde
   - arch/targets/xps
   - debian/cli
-  - debian/targets/remote
-  - debian/targets/xps
+  # - debian/targets/remote
+  # - debian/targets/xps
 
 base_groups: [linux]
 profiles:
@@ -40,4 +40,4 @@ profiles:
     - arch/targets/xps
   remote:
     - debian/cli
-    - debian/targets/remote
+    # - debian/targets/remote
