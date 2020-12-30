@@ -3,12 +3,9 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
 
-if pacman -Qi - < $DIR/$(basename $0 .install) > /dev/null 2> /dev/null ; then
+if sed -r '/^#/d' $DIR/$(basename $0 .install) | pacman -Qi - > /dev/null 2> /dev/null ; then
     echo -e "==> No packages to install... skipping.$RST"
   else
     source $DOTS_SOURCE/scripts/aur.sh
-    yay -Syu --needed --noconfirm --norebuild --noredownload - < $DIR/$(basename $0 .install)
+    sed -r '/^#/d' $DIR/$(basename $0 .install) | yay -Syu --needed --noconfirm --norebuild --noredownload -
 fi
-
-
-

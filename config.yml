@@ -9,10 +9,11 @@ override_suffix: override
 install_suffix: install
 
 groups:
-  - base
+  - linux
   - packages
   - arch/cli
   - arch/gui
+  - arch/dev
   - arch/i3wm
   - arch/kde
   - arch/targets/xps
@@ -20,7 +21,7 @@ groups:
   - debian/targets/remote
   - debian/targets/xps
 
-base_groups: [base]
+base_groups: [linux]
 profiles:
   arch:
     - arch/cli

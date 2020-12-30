@@ -2,22 +2,15 @@
 Host services.aakashhemadri.com
   User services
   Port 22
-  TCPKeepAlive no
+  TCPKeepAlive yes
 
 Host xps
   User ymir
   Port 22
 
-Host kla
-  HostName ssh.dev.azure.com
-  User git
-  IdentityFile /home/ymir/.ssh/kla_rsa
-  IdentitiesOnly yes
-
 Host *
   ServerAliveInterval 60
   TCPKeepAlive yes
   ForwardAgent yes  
-  ConnectionAttempts 3
+  ConnectionAttempts 1
   Compression yes
-  User ymir

@@ -2,14 +2,14 @@ output DP2
 off
 output VIRTUAL1
 off
-output DP1
-crtc 0
-mode 2560x1080
-pos 0x0
-primary
-rate 74.99
 output eDP1
 crtc 1
 mode 1920x1080
 pos 2560x0
 rate 59.93
+output DP1
+crtc 0
+mode 2560x1080
+pos 0x1080
+primary
+rate 74.99

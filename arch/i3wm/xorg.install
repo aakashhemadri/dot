@@ -8,4 +8,8 @@ rm -f "$HOME/.xinitrc" \
     "$HOME/.Xmodmap" \
     "$HOME/.xsession"
 
-ln -sf $XDG_CONFIG_HOME/xorg/* $HOME/
+ln -sf $XDG_CONFIG_HOME/xorg/xinitrc $HOME/.xinitrc
+ln -sf $XDG_CONFIG_HOME/xorg/Xresource $HOME/.Xresource
+ln -sf $XDG_CONFIG_HOME/xorg/Xmodmap $HOME/.Xmodmap
+ln -sf $XDG_CONFIG_HOME/xorg/xsession $HOME/.xsession
+

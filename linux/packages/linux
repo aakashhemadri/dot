@@ -1,4 +1,6 @@
 bash
+openssh
+gnupg
 git
 git-lfs
 vim

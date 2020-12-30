@@ -53,11 +53,13 @@ for_window [class = "7zFM"] floating enable
 for_window [class = "Arandr"] floating enable
 for_window [class = "aft-linux-qt"] floating enable
 for_window [class = "Nemo"] floating enable
+for_window [class = "Org.gnome.Nautilus"] floating enable
 for_window [class = "KeePassXC"] floating enable
 for_window [class = "Solaar"] floating enable
 for_window [class = "Stoken-gui"] floating enable
 for_window [class = "zoom"] floating enable
 for_window [class = "Blueman-manager"] floating enable
+
 # for_window [name = "Remmina Remote Desktop Client"] floating enable
 for_window [class = "dota2"] floating disable
 ######
@@ -340,6 +342,7 @@ exec --no-startup-id blueman-manager
 # Startup desktop apps
 exec --no-startup-id discord --start-minimized
 exec --no-startup-id steam -silent
+exec --no-startup-id megasync
 #exec --no-startup-id $CHROME
 #exec --no-startup-id $GIT_CLIENT
 #exec --no-startup-id $EDITOR

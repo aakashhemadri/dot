@@ -5,7 +5,7 @@ echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST
 
 # Both source and target files should be set to 600 permissions. Git does not
 # track permissiosn otherwise so this is a requirement.
-chmod 600 "$DOTS_SOURCE/base/gnupg/gpg-agent.conf" "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf"
+chmod 600 "$DOTS_SOURCE/linux/ssh/config" "$XDG_CONFIG_HOME/ssh/config"
 
-mkdir -p "$HOME/.gnupg"
-ln -sf "$XDG_CONFIG_HOME/gnupg/gpg-agent.conf" "$HOME/.gnupg/"
+mkdir -p "$HOME/.ssh"
+ln -sf "$XDG_CONFIG_HOME/ssh/config" "$HOME/.ssh/"
