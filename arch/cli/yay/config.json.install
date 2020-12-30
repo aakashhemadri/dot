@@ -1,13 +1,18 @@
 #!/usr/bin/bash
-DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
 
-if ! hash yay 2>/dev/null; then
-  if [[ -d XDG_CACHE_HOME/yay/yay ]]; then
-    rm -rf $XDG_CACHE_HOME/yay/yay
+cd $DIR
+if ! git diff --name-only --exit-code HEAD $DIR/$(basename $0 .install) >/dev/null 2>/dev/null; then
+  # Installation commands
+  if ! hash yay 2>/dev/null; then
+    if [[ -d XDG_CACHE_HOME/yay/yay ]]; then
+      rm -rf $XDG_CACHE_HOME/yay/yay
+    fi
+    git clone https://aur.archlinux.org/yay.git $XDG_CACHE_HOME/yay/yay
+    (cd $XDG_CACHE_HOME/yay/yay/ && makepkg -si --noconfirm)
   fi
-  git clone https://aur.archlinux.org/yay.git $XDG_CACHE_HOME/yay/yay
-  (cd $XDG_CACHE_HOME/yay/yay/ && makepkg -si --noconfirm)
+else
+  echo -e "${GRE}==> No changes detected... skipping installation."
 fi
-

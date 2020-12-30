@@ -1,10 +1,8 @@
 #!/usr/bin/bash
-DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
 
 sudo -E ln -sf "$XDG_CONFIG_HOME/bluetooth/main.conf" "/etc/bluetooth/"
-echo -e "${GRE}Please run: \"systemctl enable --now bluetooth\" to enable bluetooth"
-# sudo -E systemctl restart bluetooth
-
-
+sudo -E systemctl enable bluetooth
+sudo -E systemctl restart bluetooth

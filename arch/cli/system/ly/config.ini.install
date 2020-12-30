@@ -3,5 +3,6 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
 
+
 sudo -E ln -sf "$XDG_CONFIG_HOME/system/ly/$(basename $0 .install)" "/etc/ly/"
 sudo -E systemctl enable ly
