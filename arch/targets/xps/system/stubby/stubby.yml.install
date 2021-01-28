@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
+
+sudo -E ln -sf "$XDG_CONFIG_HOME/system/stubby/$(basename $0 .install)" "/etc/stubby/"
+sudo -E ln -sf "$XDG_CONFIG_HOME/system/stubby/dnsmasq.conf" "/etc/"
+sudo -E ln -sf "$XDG_CONFIG_HOME/system/stubby/resolv.conf" "/etc/"

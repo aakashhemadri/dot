@@ -10,7 +10,6 @@ gvfs-mtp
 gvfs-gphoto2
 gvfs-afc
 # Networking
-networkmanager-iwd
 network-manager-applet
 # Desktop
 chromium

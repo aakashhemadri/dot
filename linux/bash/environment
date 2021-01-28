@@ -54,6 +54,8 @@ if hash npm 2>/dev/null; then
     export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
     export NPM_CONFIG_DEVDIR="$XDG_CACHE_HOME/node-gyp"
     export PATH="$PATH:$HOME/.local/lib/nodejs/bin"
+    export PATH="$HOME/.node_modules/bin:$PATH"
+    export npm_config_prefix=~/.node_modules
 fi
 
 # Don't overrwrite an already configured GOPATH

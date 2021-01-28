@@ -1,0 +1,6 @@
+[sendemail]
+    confirm = auto
+    smtpServer = smtp.gmail.com
+    smtpServerPort = 587
+    smtpEncryption = tls
+    smtpUser = aakashhemadri@gmail.com

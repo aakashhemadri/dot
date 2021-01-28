@@ -2,3 +2,6 @@
 
 source "$HOME/.config/bash/environment"
 source "$HOME/.bashrc"
+
+# Added externally
+source "/home/ymir/.local/share/cargo/env"

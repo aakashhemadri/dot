@@ -55,6 +55,7 @@ for_window [class = "aft-linux-qt"] floating enable
 for_window [class = "Nemo"] floating enable
 for_window [class = "Org.gnome.Nautilus"] floating enable
 for_window [class = "KeePassXC"] floating enable
+for_window [class = "MEGASync" ] floating enable
 for_window [class = "Solaar"] floating enable
 for_window [class = "Stoken-gui"] floating enable
 for_window [class = "zoom"] floating enable
@@ -164,10 +165,11 @@ mode "resize" {
         bindsym $MOD+r mode "default"
 }
 #
-set $MODE_ADMIN "(l)ock | (s)uspend | (h)ibernate | (r)eboot | (p)oweroff"
+set $MODE_ADMIN "(e)xit | (l)ock | (s)uspend | (h)ibernate | (r)eboot | (p)oweroff"
 bindsym $MOD+Shift+p mode $MODE_ADMIN
 mode $MODE_ADMIN {
-        bindsym l mode "default", exec i3lock-fancy-rapid 5 pixel 
+        bindsym e mode "default", exec i3-msg exit
+        bindsym l mode "default", exec i3lock-fancy-rapid 5 pixel
         bindsym s mode "default", exec i3lock-fancy-rapid 5 pixel
         bindsym h mode "default", exec i3lock-fancy-rapid 5 pixel, exec systemctl hibernate
         bindsym r mode "default", exec reboot
@@ -192,7 +194,7 @@ bindsym $MOD+Shift+r restart
 bindsym $MOD+Shift+s sticky toggle
 bindsym $MOD+Shift+q kill
 bindsym $MOD+Shift+e exec i3lock-fancy-rapid 5 pixel 
-#bindsym $MOD+Shift+x exit
+# bindsym $MOD+Shift+x exit
 bindsym $MOD+Shift+a exec --no-startup-id autorandr -c && $HOME/.config/polybar/polybar-launch.sh && nitrogen --restore
 bindsym $MOD+Shift+z exec --no-startup-id $HOME/.config/polybar/polybar-launch.sh && nitrogen --restore
 #
@@ -342,7 +344,8 @@ exec --no-startup-id blueman-manager
 # Startup desktop apps
 exec --no-startup-id discord --start-minimized
 exec --no-startup-id steam -silent
-exec --no-startup-id megasync
+exec --no-startup-id google-drive-ocamlfuse $HOME/sync/gdrive && megasync
+exec --no-startup-id keybase-gui
 #exec --no-startup-id $CHROME
 #exec --no-startup-id $GIT_CLIENT
 #exec --no-startup-id $EDITOR

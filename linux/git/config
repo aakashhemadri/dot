@@ -4,6 +4,7 @@
 
 [pretty]
   ls = format:%C(cyan)%h %C(red)%ad %C(blue)[%an]%C(auto)%d %C(normal)%s
+  fixes = Fixes: %h (\"%s\")
 
 [commit]
   gpgsign = true
@@ -31,3 +32,9 @@
 
 [include]
   path = user
+
+[include]
+  path = smtp
+  
+[include]
+  path = git.secret
