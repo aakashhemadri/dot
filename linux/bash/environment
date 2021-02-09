@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+shopt -s globstar
 
 export DOTS_SOURCE=$HOME/.local/etc
 # Set the systemd-style DBUS address
@@ -10,9 +11,11 @@ export EDITOR="nvim"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-
-export PATH="$PATH:$HOME/.local/bin:$XDG_CONFIG_HOME/bash/bin"
-export PATH="$PATH:$HOME/bin:/media/meraxes/games/bin"
+export REPOSITORY_ROOT="$HOME/repo"
+# CUSTOM PATHS
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/bin/linux/"
 
 # Look for terminfo files under data
 [ -d "$XDG_DATA_HOME/terminfo" ] && export TERMINFO="$XDG_DATA_HOME/terminfo"

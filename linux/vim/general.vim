@@ -15,7 +15,7 @@ highlight VertSplit ctermbg=8 ctermfg=black
 set fillchars+=vert:│
 
 set number     " Show line numbers
-set nowrap     " Don't visually wrap lines
+" set nowrap     " Don't visually wrap lines
 set noshowmode " Don't show mode (--INSERT--, etc)
 set cursorline " Highlight the current cursor line
 set hidden     " Allow buffer switching without having to save
@@ -24,6 +24,20 @@ set hlsearch   " Highlight searched text
 set ignorecase " Ignore case when searching
 set smartcase  " Don't ignore case when using uppercase in a search
 set confirm    " Ask for confirmation when closing unsaved files
+
+" Git/Linux dev config.
+" Tab configurations
+set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab cindent cc=80 | %retab | autocmd BufWritePre * %s/\s\+$//e
+set colorcolumn=81
+
+" Highlight trailing spaces
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " Incremental scrolling
 set sidescroll=1
@@ -37,9 +51,6 @@ set completeopt=longest,menuone
 
 " Disable backup files
 set nobackup nowritebackup noswapfile
-
-" Tab configurations
-set smartindent expandtab tabstop=2 softtabstop=2 shiftwidth=2
 
 " Ignore cache type files
 set wildignore+=*/cache/*,*.sassc

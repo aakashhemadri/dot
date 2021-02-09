@@ -17,13 +17,13 @@
 
 [format]
   signoff = true
-  
+
 [color]
   ui = true
 
 [apply]
   whitespace = strip
-  
+
 [url "git@github.com:"]
   insteadOf = gh:
 
@@ -31,10 +31,10 @@
   insteadOf = me:
 
 [include]
-  path = user
+  path = config.personal
 
 [include]
   path = smtp
-  
+
 [include]
   path = git.secret

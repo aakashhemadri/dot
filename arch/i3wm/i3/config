@@ -193,7 +193,7 @@ bindsym $MOD+Shift+c reload
 bindsym $MOD+Shift+r restart
 bindsym $MOD+Shift+s sticky toggle
 bindsym $MOD+Shift+q kill
-bindsym $MOD+Shift+e exec i3lock-fancy-rapid 5 pixel 
+bindsym $MOD+Shift+e exec i3lock-fancy-rapid 5 pixel
 # bindsym $MOD+Shift+x exit
 bindsym $MOD+Shift+a exec --no-startup-id autorandr -c && $HOME/.config/polybar/polybar-launch.sh && nitrogen --restore
 bindsym $MOD+Shift+z exec --no-startup-id $HOME/.config/polybar/polybar-launch.sh && nitrogen --restore
@@ -229,7 +229,7 @@ set_from_resource $urgent_alt color.dark-red
 #<colorclass><border><background><text><indicator><child_border>
 client.focused $border_alt $bg $text $indicator $child_border_alt
 client.focused_inactive $border $bg $text $indicator $child_border
-client.unfocused $border $bg $text $indicator $child_border 
+client.unfocused $border $bg $text $indicator $child_border
 client.urgent $urgent_alt $bg $text $urgent-alt $urgent_alt
 client.background $black
 
@@ -246,7 +246,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -255,7 +255,7 @@ bindsym $MOD+F12 exec xbacklight -inc 5
 bindsym $MOD+F11 exec xbacklight -dec 5
 bindsym $MOD+F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $MOD+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym $MOD+F1 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
+bindsym $MOD+F1 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 #
 #bindsym $MOD+d exec dmenu_run
 bindsym $SUPER+d exec rofi -show run
@@ -275,7 +275,7 @@ bindsym $SUPER+n exec $FILE_MANAGER
 # workspace/gaps
 ################################################################
 
-default_border normal 5 
+default_border normal 5
 for_window [class="^.*"] border pixel 3
 #hide_edge_borders none
 
@@ -342,10 +342,12 @@ exec --no-startup-id pasystray
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-manager
 # Startup desktop apps
-exec --no-startup-id discord --start-minimized
-exec --no-startup-id steam -silent
-exec --no-startup-id google-drive-ocamlfuse $HOME/sync/gdrive && megasync
-exec --no-startup-id keybase-gui
+# exec --no-startup-id discord --start-minimized
+# exec --no-startup-id steam -silent
+# exec --no-startup-id google-drive-ocamlfuse $HOME/sync/gdrive && megasync
+# exec --no-startup-id keybase-gui
+# exec --no-startup-id thunderbird
+# exec --no-startup-id hexchat
 #exec --no-startup-id $CHROME
 #exec --no-startup-id $GIT_CLIENT
 #exec --no-startup-id $EDITOR
